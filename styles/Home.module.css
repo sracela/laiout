@@ -61,6 +61,14 @@
     flex-direction: column;
   }
 } 
+
+.gridResults {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
 /* .code {
   background: #fafafa;
   border-radius: 5px;

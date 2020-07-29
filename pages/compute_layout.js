@@ -1,18 +1,22 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import styles from '../styles/Home.module.css'
+import { FileUploadContent } from '../components/ImageUploader'
+import { useRouter } from 'next/router'
 
 export default function ComputeLayout() {
+  const router = useRouter()
+  const { image } = router.query
   return (
     <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
-        <h1 className={styles.title}>Push <strong style={{'font-weight': '400'}}>play</strong> to obtain your code</h1>
-        <div className={styles.grid}>
+      <section className={styles.grid}>
+        <h1 className={styles.title}> Here is your code ! </h1>
+        <div className={styles.gridResults}>
             <div className={styles.card}>
-              Image
+                <FileUploadContent content={image}/> 
             </div>
             <div className={styles.card}>
               DSL
@@ -20,9 +24,6 @@ export default function ComputeLayout() {
             <div className={styles.card}>
              Real code
             </div>
-        </div>
-        <div className={styles.card}>
-            PLAY
         </div>
 
       </section>

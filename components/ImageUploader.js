@@ -1,8 +1,18 @@
-import Link from 'next/link'
+import { useRouter } from 'next/router';
 import styles from '../components/ImageUploader.module.css'
 import { useState, useRef } from 'react'
 
+
+export function FileUploadContent( props ){
+    return(
+        <div className={styles.fileUploadContent} >
+            <img className={styles.fileUploadImage} src={props.content} />
+         </div> 
+    )
+}
+
 export default function ImageUploader() {
+    const router = useRouter();
     const [image, setImage] = useState('');
     const inputFileRef = useRef(null);
     
@@ -12,15 +22,20 @@ export default function ImageUploader() {
           setImage(URL.createObjectURL(img))
         }
       };
+    
+    const getCode = () => {
+        router.push({
+            pathname: '/compute_layout',
+            query: { image: image }
+          })
+    }
 
  return (
      <div className={styles.fileUpload}>
         <button className={styles.fileUploadBtn} type="button" onClick={() => {inputFileRef.current.click();}}>Add Image</button>
         <div className={styles.imageUploadWrap}>
             <input className={styles.fileUploadInput} type='file' onChange={onImageChange} ref={inputFileRef} />
-            {image ? <div className={styles.fileUploadContent} >
-            <img className={styles.fileUploadImage} src={image} />
-         </div> :
+            {image ? <FileUploadContent content={image}/> :
          <div className={styles.dragText}>
                 <h3>Drag and drop a file </h3>
                 <h3>or</h3> 
@@ -28,11 +43,11 @@ export default function ImageUploader() {
             </div>}
 
          </div>
-         {image && <Link href="/compute_layout" >
-                <div className={styles.card}>
-                    Get your code!
-                </div>
-            </Link>}
+         {image && 
+            <div className={styles.card} onClick={getCode}>
+                Get your code!
+            </div>}
+        
      </div>
  )
 }
