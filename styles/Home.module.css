@@ -40,11 +40,17 @@
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 } */
-
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}
 
 .card {
   margin: 1rem;
-  flex-basis: 45%;
   padding: 1.5rem;
   text-align: center;
   color: inherit;
@@ -59,8 +65,10 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #305846;
-  border-color: #305846;
+  /* color: #305846;
+  border-color: #305846; */
+  background-color: #3058468c;
+  cursor: pointer;
 }
 
 /* .card h3 {

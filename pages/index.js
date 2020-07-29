@@ -9,13 +9,13 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={styles.grid}>
+      <section>
         <h1 className={styles.title}>PIX2CODE</h1>
-        <div className={styles.card}>
           <Link href="/converter" >
+        <div className={styles.card}>
               <a>Get Started</a>
-          </Link>
         </div>
+        </Link>
         <p className={styles.description}>
           Small but powerful
         </p>
