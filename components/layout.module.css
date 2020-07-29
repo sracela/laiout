@@ -46,11 +46,3 @@
     object-fit: contain;
     height: 2.5em;
 }
-
-.backToHome {
-    background-color: green;
-}
-
-.backToPrevious {
-    background-color: goldenrod;
-}

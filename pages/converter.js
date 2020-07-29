@@ -12,11 +12,11 @@ export default function Converter() {
       <section className={styles.grid}>
         <h1 className={styles.title}>Select your Platform</h1>
         <div className={styles.grid}>
-        <Link href="/upload_image" >
-        <div className={styles.card}>
-          Android
-        </div>
-        </Link>
+          <Link href="/upload_image" >
+            <div className={styles.card}>
+              Android
+            </div>
+          </Link>
         <div className={styles.card}>
           iOS
         </div>

@@ -2,10 +2,12 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import Link from 'next/link'
 
-const name = 'Sara Cela'
+import NavBackButton from '../components/NavBackButton'
+
 export const siteTitle = 'Pix2code'
 
 export default function Layout({ children, home }) {
+
     return (
         <div className={styles.container}>
             <Head>
@@ -28,18 +30,11 @@ export default function Layout({ children, home }) {
             <footer className={styles.footer}>
                 <p>Powered by sracela</p>
                 {!home && (
-                    <div className={styles.backToHome}>
-                        <Link href="/">
-                            <a>← Back to home</a>
-                        </Link>
+                    <div>
+                        {/* <span onClick={() => router.back()}>Previous page</span> */}
+                        <NavBackButton />
                     </div>            
                 )}
-                {!home && (
-                    <div className={styles.backToPrevious}>
-                        <Link href="/">
-                            <a>Previous page</a>
-                        </Link>
-                    </div>)}
             </footer>
         </div>
     )
