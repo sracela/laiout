@@ -9,7 +9,7 @@ export default function ComputeLayout() {
         <title>{siteTitle}</title>
       </Head>
       <section>
-        <h1 className={styles.title}>Push play to obtain your code</h1>
+        <h1 className={styles.title}>Push <strong style={{'font-weight': '400'}}>play</strong> to obtain your code</h1>
         <div className={styles.grid}>
             <div className={styles.card}>
               Image
