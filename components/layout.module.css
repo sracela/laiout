@@ -1,17 +1,48 @@
 .container {
-        width:100%;
-        height: 100vh;
-        overflow: hidden;
-        background: burlywood;
-}
-.header {
-    background: brown;
-}
-
-.backToHome {
-    background-color: green;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/background.jpg');
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.backToPrevious {
-    background-color: goldenrod;
+.main{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav{
+    /* background-color: rgba(128, 131, 131, 0.308);
+    border-radius: 2em;
+    padding: 0 3em; */
+    width: 80%;
+    margin: 5px auto;
+    min-height: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer{   
+    min-height: 10vh;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    flex: 3;
+    font-size: 1rem;
+}
+
+.hamburguer{
+    justify-self: end;
+    object-fit: contain;
+    height: 2.5em;
 }

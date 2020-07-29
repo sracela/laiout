@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
+import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
@@ -9,13 +10,13 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
       <section>
-        <h1>Pix2code</h1>
-        <div style={{background: 'green'}}>
+        <h1 className={styles.title}>PIX2CODE</h1>
           <Link href="/converter" >
+        <div className={styles.card}>
               <a>Get Started</a>
-          </Link>
         </div>
-        <p>
+        </Link>
+        <p className={styles.description}>
           Small but powerful
         </p>
       </section>
