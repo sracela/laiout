@@ -9,7 +9,7 @@ export default function Upload_Image() {
         <Head>
           <title>{siteTitle}</title>
         </Head>
-        <section>
+        <section className={styles.grid}>
           <h1 className={styles.title}>Upload an image</h1>
           <ImageUploader />
         </section>
