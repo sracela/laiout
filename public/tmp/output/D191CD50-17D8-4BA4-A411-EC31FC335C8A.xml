@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tonybeltramelli.android_gui.MainActivity">
+    <FrameLayout android:id="@+id/content" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1" android:padding="10dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp" android:weightSum="1">
+<TextView android:id="@+id/itrdzjjDWF" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Qaktt" android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+<SeekBar android:id="@+id/XYqUhtAQBN" style="@style/Widget.AppCompat.SeekBar.Discrete" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0.9" android:max="10" android:progress="5"/><TextView android:id="@+id/xmoncsXzdI" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Potnf" android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+
+</LinearLayout><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp" android:weightSum="1">
+<Switch android:id="@+id/LhNUqpZcWh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingRight="10dp" android:text="Btmte"/>
+</LinearLayout>
+    </LinearLayout>
+</FrameLayout><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="1">
+    <Button android:id="@+id/LwwyhfzjKX" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="#0ffffff" android:layout_weight="1" android:drawableBottom="@drawable/ic_dashboard_black_24dp" android:text=""/><Button android:id="@+id/eBeMMOHwKH" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="#0ffffff" android:layout_weight="1" android:drawableBottom="@drawable/ic_notifications_black_24dp" android:text=""/><Button android:id="@+id/FENfwVoGfJ" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="#0ffffff" android:layout_weight="1" android:drawableBottom="@drawable/ic_dashboard_black_24dp" android:text=""/>
+</LinearLayout>
+</LinearLayout>
