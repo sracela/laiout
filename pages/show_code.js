@@ -6,14 +6,16 @@ import { useRouter } from 'next/router'
 import { useState, useEffect, useRef } from 'react';
 
 import axios from "axios";
+import SetIamge from './set_image'
 
+export function Loader() {
+  return (<object type="image/svg+xml" data="/images/loading.svg">svg-animation</object>)
+}
 
 export default function ComputeLayout() {
   const [copySuccess, setCopySuccess] = useState('');
   const textAreaRef = useRef(null);
   const guiRef = useRef(null);
-  const dir = 'tmp/input/'
-  // const dir = "/selector/"
 
   function copyToClipboard(e) {
     const el = document.createElement('textarea');
@@ -33,34 +35,33 @@ export default function ComputeLayout() {
     setCopySuccess('Copied!');
   };
 
-  const router = useRouter()
-  // const { query } = router
-  const filename = dir + router.query.filename
-
-
+  
   const [data, setData] = useState('');
+  const [image, setImage] = useState('');
+  const [loading, setLoading] = useState(true);
 
 
 useEffect(() => {
-  async function fetchData() {
-    console.log(router.query.filename.split('.')[0])
-    const response = await axios
-   .post("/api/upload", {
-    
-     filename: router.query.filename.split('.')[0]
-    
-  }, {
-        //      headers: {
-        //    "Content-Type": "multipart/form-data"
-        //  }
-   })
-   .then(function(response) {
-     console.log(response.data);
-     setData(response.data);
-   })
-   .catch(function(error) {
-     console.log(error);
-   });
+  const file = localStorage.getItem('myData');
+  setImage(file);
+  const payload = JSON.stringify({image: file});
+
+  async function fetchData(){
+
+     const result = await axios
+       .post("/api/first", payload, {
+         headers: {
+       "Content-Type": 'application/json'
+        }    
+       })
+       .then(function (response) {
+         console.log(response);
+         setLoading(false);
+         setData(response)
+       })
+       .catch(function (error) {
+         console.log(error);
+       })
    };
    
   fetchData();
@@ -73,22 +74,22 @@ useEffect(() => {
         <title>{siteTitle}</title>
       </Head>
       <section className={styles.grid}>
+        { !loading ? (<>
         <h1 className={styles.title}>Here is your code !</h1>
         <div className={styles.resultsContainer}>
             <div className={styles.resultCard}>
                 Image
-                <FileUploadContent content={filename}/> 
+                <FileUploadContent content={image}/> 
             </div>
             <div className={styles.resultCard}>
               DSL
-              <pre><p className={styles.code} ref={guiRef}>{data.gui} </p></pre>
-              {/* hey, if the code does not appear, reload page */}
+              {/* <pre><p className={styles.code} ref={guiRef}>{data.gui} </p></pre> */}
             </div>
             <div className={styles.resultCard}  onClick={copyToClipboard}>
              Code {!copySuccess ? <div className={styles.vibrate}>Click to copy!</div> : <span> - Copied!</span>}
-              <pre className={styles.code} ref={textAreaRef}>{data.xml}</pre>
+              {/* <pre className={styles.code} ref={textAreaRef}>{data.xml}</pre> */}
             </div>
-        </div>
+        </div></>) :  <Loader /> }
 
       </section>
     </Layout>

@@ -4,8 +4,6 @@ import styles from '../components/ImageUploader.module.css'
 import { useState, useRef } from 'react';
 import axios from "axios";
 
-const image0 = "0A25DA92-30F7-4869-81C8-D73A6F3004E1.png"
-
 
 export function FileUploadContent(props) {
   return (
@@ -34,16 +32,6 @@ export default function ImageUploader() {
       setImage(URL.createObjectURL(img));
       setFilename(img.name)
     }
-  };
-
-
-  const selectImage = (event) => {
-    console.log(event.target.src)
-    let img = event.target.src;
-    setFile(event.target);
-    setImage(img);
-    setFilename(event.target.id)
-    console.log(event.target.id)
   };
 
   const fetchData = async () => {
@@ -95,28 +83,8 @@ export default function ImageUploader() {
               {image ? <FileUploadContent content={image} /> :
                 <div className={styles.dragText}>
                   <h3>Drag and drop a file </h3>
-                  {/* <h3>or</h3>
-                  <h3>select to add one</h3> */}
                 </div>}
-
             </div>
-
-            {/* <h1 className={styles.title}>You can instead select one of those images</h1>
-            <div className={styles.resultsContainer}>
-            <div className={styles.resultCard} >
-                <img className={styles.fileUploadImage} onClick={selectImage} src={"../tmp/input/"+image0} id={image0} />
-            </div>
-            <div className={styles.resultCard} >
-                <img className={styles.fileUploadImage} src="tmp/input/0A25DA92-30F7-4869-81C8-D73A6F3004E1.png" />
-            </div>
-            <div className={styles.resultCard} >
-                <img className={styles.fileUploadImage} src="tmp/input/0A25DA92-30F7-4869-81C8-D73A6F3004E1.png" />
-            </div>
-            <div className={styles.resultCard} >
-                <img className={styles.fileUploadImage} src="tmp/input/0A25DA92-30F7-4869-81C8-D73A6F3004E1.png" />
-            </div>
-            
-            </div> */}
             {image &&
               <div className={styles.card} onClick={getCode}>
                 Get your code!

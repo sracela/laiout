@@ -4,5 +4,5 @@ switch
 }
 }
 footer{
-btn-search,btn-home,btn-notifications,btn-home
+btn-search,btn-home,btn-home,btn-home
 }
