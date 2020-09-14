@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect, useRef } from 'react';
 
 import axios from "axios";
+import SetIamge from './set_image'
 
 export function Loader() {
   return (<object type="image/svg+xml" data="/images/loading.svg">svg-animation</object>)
@@ -35,17 +36,20 @@ export default function ComputeLayout() {
   };
 
   
-  const file = localStorage.getItem('myData');
-  const image = JSON.stringify({image: file});
   const [data, setData] = useState('');
+  const [image, setImage] = useState('');
   const [loading, setLoading] = useState(true);
 
 
 useEffect(() => {
+  const file = localStorage.getItem('myData');
+  setImage(file);
+  const payload = JSON.stringify({image: file});
+
   async function fetchData(){
 
      const result = await axios
-       .post("/api/first", image, {
+       .post("/api/first", payload, {
          headers: {
        "Content-Type": 'application/json'
         }    
@@ -75,7 +79,7 @@ useEffect(() => {
         <div className={styles.resultsContainer}>
             <div className={styles.resultCard}>
                 Image
-                <FileUploadContent content={file}/> 
+                <FileUploadContent content={image}/> 
             </div>
             <div className={styles.resultCard}>
               DSL
