@@ -4,7 +4,9 @@ import Link from 'next/link'
 
 import NavBackButton from '../components/NavBackButton'
 
-export const siteTitle = 'Pix2code'
+export const siteTitle = 'l.ai.out'   
+
+const isServer = typeof window === "undefined";
 
 export default function Layout({ children, home }) {
 
@@ -20,18 +22,21 @@ export default function Layout({ children, home }) {
             </Head>
             <header>
                 <nav className={styles.nav}>
-                    <Link href="/"><a className={styles.logo}>pix2code</a></Link>
+                    <Link href="/"><a className={styles.logo}>l.ai.out</a></Link>
                     <img className={styles.hamburguer} src="/images/icons8-hamburguesa-50.png" alt="hamburger" />
                 </nav>
             </header>
             <main className={styles.main}>
-                {children}
+            {children}
+            {/* {!isServer &&               
+                <React.Suspense fallback={<h1>Loading profile...</h1>}>
+                                     {children}
+                </React.Suspense>} */}
             </main>
             <footer className={styles.footer}>
                 <p>Powered by sracela</p>
                 {!home && (
                     <div>
-                        {/* <span onClick={() => router.back()}>Previous page</span> */}
                         <NavBackButton />
                     </div>            
                 )}
