@@ -10,6 +10,12 @@ font-weight: 200;
 text-align: center
 }
 
+.fileUpload{
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
 .fileUploadImage{
   max-height: 20rem;
   max-width: 20rem;

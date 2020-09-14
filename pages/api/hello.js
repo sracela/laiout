@@ -4,9 +4,7 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const formidable = require('formidable');
 
-// let base64String = 
-// // Remove header
-// let base64Image = base64String.split(';base64,').pop();
+
 export const config = {
   api: {
     bodyParser: false
@@ -22,7 +20,6 @@ export default async(req, res) => {
     form.on('fileBegin', function(name, file) {
       file.path = form.uploadDir + "/" + file.name;
     })
-    // form.parse(req);
 
     form.parse(req, (err, fields, files) => {
       if (err) return reject(err)

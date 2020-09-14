@@ -10,11 +10,11 @@ export default function SetIamge() {
         <title>{siteTitle}</title>
       </Head>
       <section className={styles.grid}>
-        <h1 className={styles.title}>Would you..</h1>
+        <h1 className={styles.title}>Would you...?</h1>
         <div className={styles.grid}>
           <Link href="/upload_image" >
             <div className={styles.card}>
-              Upload an image?
+              Upload <br /> an image
             </div>
           </Link>
           
@@ -22,7 +22,7 @@ export default function SetIamge() {
 
           <Link href="/select_image" >
             <div className={styles.card}>
-              Select one of ours?
+              Select <br />  one of ours
             </div>
           </Link>
         </div>
