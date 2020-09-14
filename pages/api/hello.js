@@ -21,7 +21,7 @@ export default async(req, res) => {
     form.uploadDir = '/mnt/datos/projects_hdd/web/react/pix2code/public/tmp/input';
     form.on('fileBegin', function(name, file) {
       file.path = form.uploadDir + "/" + file.name;
-  })
+    })
     // form.parse(req);
 
     form.parse(req, (err, fields, files) => {

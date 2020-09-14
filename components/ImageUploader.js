@@ -34,16 +34,6 @@ export default function ImageUploader() {
     }
   };
 
-
-  const selectImage = (event) => {
-    console.log(event.target.src)
-    let img = event.target.src;
-    setFile(event.target);
-    setImage(img);
-    setFilename(event.target.id)
-    console.log(event.target.id)
-  };
-
   const fetchData = async () => {
 
     const formData = new FormData();
