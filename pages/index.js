@@ -10,7 +10,7 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
       <section>
-        <h1 className={styles.title}>PIX2CODE</h1>
+        <h1 className={styles.title}>L.AI.OUT</h1>
           <Link href="/converter" >
         <div className={styles.card}>
               <a>Get Started</a>
