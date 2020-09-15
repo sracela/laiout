@@ -45,19 +45,22 @@ useEffect(() => {
   const file = localStorage.getItem('myData');
   setImage(file);
   const payload = JSON.stringify({image: file});
+  console.log(payload)
+  const formData = new FormData();
+  formData.append('image', file);
 
   async function fetchData(){
 
      const result = await axios
-       .post("/api/first", payload, {
+       .post("http://192.168.8.101:12345/convert", formData, {
          headers: {
-       "Content-Type": 'application/json'
+          "Content-Type": "multipart/form-data"
         }    
        })
        .then(function (response) {
          console.log(response);
          setLoading(false);
-         setData(response)
+         setData(response.data)
        })
        .catch(function (error) {
          console.log(error);
@@ -83,11 +86,11 @@ useEffect(() => {
             </div>
             <div className={styles.resultCard}>
               DSL
-              {/* <pre><p className={styles.code} ref={guiRef}>{data.gui} </p></pre> */}
+              <pre><p className={styles.code} ref={guiRef}>{data.gui} </p></pre>
             </div>
             <div className={styles.resultCard}  onClick={copyToClipboard}>
              Code {!copySuccess ? <div className={styles.vibrate}>Click to copy!</div> : <span> - Copied!</span>}
-              {/* <pre className={styles.code} ref={textAreaRef}>{data.xml}</pre> */}
+              <pre className={styles.code} ref={textAreaRef}>{data.xml}</pre>
             </div>
         </div></>) :  <Loader /> }
 
