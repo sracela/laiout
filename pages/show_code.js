@@ -50,9 +50,8 @@ useEffect(() => {
   formData.append('image', file);
 
   async function fetchData(){
-
      const result = await axios
-       .post("http://192.168.8.101:12345/convert", formData, {
+       .post("http://35.180.39.152:12345/convert", formData, {
          headers: {
           "Content-Type": "multipart/form-data"
         }    
