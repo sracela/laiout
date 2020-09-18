@@ -94,3 +94,22 @@ background: #555;
   background-color: #3058468c;
   cursor: pointer;
 }
+
+@media (max-width: 1200px) {
+  .resultsContainer {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+  
+    }
+  .resultCard {
+      flex: 0 0 auto;
+  }
+  .grid {
+  width: 100%;
+  }
+  .resultsContainer {
+      width: 100%;
+      -webkit-overflow-scrolling: touch;
+  }
+} 

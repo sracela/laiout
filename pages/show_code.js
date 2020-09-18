@@ -2,14 +2,56 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import styles from '../styles/ComputeLayout.module.css'
 import { FileUploadContent } from '../components/ImageUploader'
-import { useRouter } from 'next/router'
 import { useState, useEffect, useRef } from 'react';
 
 import axios from "axios";
-import SetIamge from './set_image'
 
 export function Loader() {
-  return (<object type="image/svg+xml" data="/images/loading.svg">svg-animation</object>)
+  const [seconds, setSeconds] = useState(0);
+  const [paragraph, setParagraph] = useState();
+
+  useEffect(() => {
+    if (seconds < 21) {
+      setTimeout(() => setSeconds(seconds + 1), 1000);
+      switch(true){
+        case (seconds > 1 && seconds <= 3):
+          setParagraph("Our AI is receiving the image");
+          break;
+        case (seconds > 3 && seconds <= 6):
+          setParagraph("She seems to like it :)");
+          break;
+        case (seconds > 6 && seconds <= 9):
+          setParagraph("Okey, it's taking longer than expected");
+          break;
+        case (seconds > 9 && seconds <= 12):
+          setParagraph("Probably our AI is procrastinating.");
+          break;
+        case (seconds > 12 && seconds <= 15):
+          setParagraph("She wasn't going to get paid anyway");
+          break;
+        case (seconds > 15 && seconds <= 20):
+          setParagraph("Maybe if you go back and try again?");
+          break;
+        default:
+          setParagraph("");
+          break;
+      }
+    }
+    else {
+      setSeconds(0);
+    }
+},[seconds]);
+
+  return (
+
+    <div className={styles.loaderContainer}>
+      <div className={styles.loader}>
+        <object type="image/svg+xml" data="/images/loading.svg">svg-animation</object></div>  
+      <div>
+        <p className={styles.description}>{paragraph}</p>
+      </div>
+    </div>
+  )
 }
 
 export default function ComputeLayout() {

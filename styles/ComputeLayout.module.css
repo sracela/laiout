@@ -8,9 +8,13 @@ line-height: 1.15;
 font-size: 4rem;
 font-weight: 200;
 }
-
-.title,
 .description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.title, .description {
 text-align: center;
 }
 .grid {
@@ -107,6 +111,19 @@ background-color: rgb(172, 171, 171);
 background: #555;
 }
 
+.loaderContainer{
+    width: 600px;
+    height: 200px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.loader{
+    position: relative;
+    left: 32.5%;
+    
+}
+
 .vibrate{animation:vibrate .3s linear infinite both}
 
 /* ----------------------------------------------
@@ -125,10 +142,6 @@ background: #555;
         overflow-x: auto;
     
       }
-
-    /* .resultsContainer::-webkit-scrollbar{
-        display: none;
-    } */
     .resultCard {
         flex: 0 0 auto;
     }
