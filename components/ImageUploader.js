@@ -2,7 +2,8 @@ import { useRouter } from 'next/router';
 import styles from '../components/ImageUploader.module.css'
 
 import { useState, useRef } from 'react';
-import axios from "axios";
+// import axios from "axios";
+import { toDataURL } from '../lib/sendImagesServer';
 
 
 export function FileUploadContent(props) {
@@ -13,69 +14,40 @@ export function FileUploadContent(props) {
   )
 }
 
-export function Loader() {
-  return (<object type="image/svg+xml" data="/images/loading.svg">svg-animation</object>)
-}
-
 export default function ImageUploader() {
   const router = useRouter();
   const [image, setImage] = useState(''); 
   const [file, setFile] = useState(null); 
-  const [filename, setFilename] = useState(''); 
-  const [loading, setLoading] = useState(false);
   const inputFileRef = useRef(null);
 
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setFile(img);
       setImage(URL.createObjectURL(img));
-      setFilename(img.name)
+      toDataURL(
+        URL.createObjectURL(img),
+        function(dataUrl) {
+          setFile(dataUrl);
+          localStorage.setItem('myData', dataUrl);
+        }
+      )
     }
-  };
-
-  const fetchData = async () => {
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    const result = await axios
-      .post("/api/hello", formData, {
-        headers: {
-      "Content-Type": "multipart/form-data"
-    }
-
-      })
-      .then(function (response) {
-        console.log(response);
-        nextPage();
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
   };
 
   function getCode() {
-    // var FileSaver = require('file-saver');
-    // FileSaver.saveAs(image, "LAIOUTimage.png");
 
-    fetchData();
-    setLoading(true);
+      nextPage();
   }
 
   function nextPage() {
     router.push({
-      pathname: '/compute_layout',
-      query: {filename}
+      pathname: '/show_code'
     })
   }
 
   return (
-    <>
 
-      {
-        !loading ?
-          (<div className={styles.fileUpload}>
+          <div className={styles.fileUpload}>
             {/* <button className={styles.fileUploadBtn} type="button" onClick={() => { inputFileRef.current.click(); }}>Add Image</button> */}
 
             <div className={styles.imageUploadWrap}>
@@ -89,12 +61,6 @@ export default function ImageUploader() {
               <div className={styles.card} onClick={getCode}>
                 Get your code!
             </div>}
-
-          </div>) : <Loader />
-
-      }
-
-    </>
-
+            </div>
   )
 }
