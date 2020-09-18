@@ -17,12 +17,16 @@ export default function Converter() {
               Android
             </div>
           </Link>
-        <div className={styles.card}>
-          iOS
-        </div>
-        <div className={styles.card}>
-          Web
-        </div>
+        <Link href="/under_construction" >
+            <div className={styles.card}>
+              iOS
+            </div>
+          </Link>
+        <Link href="/under_construction" >
+            <div className={styles.card}>
+              Web
+            </div>
+          </Link>
         </div>
 
       </section>
