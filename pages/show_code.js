@@ -51,7 +51,7 @@ useEffect(() => {
 
   async function fetchData(){
      const result = await axios
-       .post("http://35.180.39.152:12345/convert", formData, {
+       .post("https://laiout.quarantini-game.com/convert", formData, {
          headers: {
           "Content-Type": "multipart/form-data"
         }    

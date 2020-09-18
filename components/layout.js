@@ -22,7 +22,7 @@ export default function Layout({ children, home }) {
             </Head>
             <header>
                 <nav className={styles.nav}>
-                    <Link href="/"><a className={styles.logo}>l.ai.out</a></Link>
+                    <Link href="/"><div><p className={styles.logo}><a >l.ai.out</a></p></div></Link>
                     <img className={styles.hamburguer} src="/images/icons8-hamburguesa-50.png" alt="hamburger" />
                 </nav>
             </header>
@@ -34,7 +34,7 @@ export default function Layout({ children, home }) {
                 </React.Suspense>} */}
             </main>
             <footer className={styles.footer}>
-                <p>Powered by sracela</p>
+                <p>Powered by <a className={styles.portfolio} href="https://www.sracela.com/" target="_blank" rel="noopener">sracela</a></p>
                 {!home && (
                     <div>
                         <NavBackButton />
