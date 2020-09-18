@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .container {
     overflow: hidden;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/background.jpg');
@@ -8,7 +10,7 @@
 }
 
 .main{
-    height: 80vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,6 +24,7 @@
     width: 80%;
     margin: 5px auto;
     min-height: 2.5rem;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,11 +41,34 @@
 
 .logo{
     flex: 3;
-    font-size: 1rem;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;        
+
+
 }
 
+ 
+.logo:hover{
+    letter-spacing: .20em; /* Adjust as needed */
+    cursor: pointer;
+}
+/* The typing effect */
+/* @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+   */
 .hamburguer{
     justify-self: end;
     object-fit: contain;
-    height: 2.5em;
+    height: 2em;
+}
+
+.portfolio{
+    text-decoration: none;
+}
+
+.portfolio:hover{
+    color: pink;
+    font-weight: bolder;
 }
