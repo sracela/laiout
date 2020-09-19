@@ -23,7 +23,7 @@
     padding: 0 3em; */
     width: 80%;
     margin: 5px auto;
-    min-height: 2.5rem;
+    min-height: 2rem;
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -61,7 +61,7 @@
 .hamburguer{
     justify-self: end;
     object-fit: contain;
-    height: 2em;
+    height: 2.5em;
 }
 
 .portfolio{

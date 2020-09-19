@@ -47,10 +47,10 @@ export default function ImageSelector() {
     
     const images = array.map(image => {
         return (
-            <div className={styles.resultCard} >
+            <div className={styles.resultCard} key={image} >
                 {/* <img className={styles.fileUploadImage} onClick={selectImage} src={"../tmp/input/" + image0} id={image0} /> */}
                 <strong> {image} </strong>
-                <img className={styles.fileUploadImage} key={image} src={`${image_path}/${image}.png`} alt={image}  onClick={selectImage} />
+                <img className={styles.fileUploadImage}  src={`${image_path}/${image}.png`} alt={image}  onClick={selectImage} />
             </div>
         )
 

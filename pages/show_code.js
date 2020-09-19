@@ -87,7 +87,7 @@ useEffect(() => {
   const file = localStorage.getItem('myData');
   setImage(file);
   const payload = JSON.stringify({image: file});
-  console.log(payload)
+  // console.log(payload)
   const formData = new FormData();
   formData.append('image', file);
 

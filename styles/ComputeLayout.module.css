@@ -142,6 +142,13 @@ background: #555;
         overflow-x: auto;
     
       }
+
+    .loader{
+        position: relative;
+        left:25%;
+        
+    }
+
     .resultCard {
         flex: 0 0 auto;
     }

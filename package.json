@@ -10,6 +10,7 @@
   "dependencies": {
     "@tensorflow/tfjs": "^2.1.0",
     "axios": "^0.20.0",
+    "classnames": "^2.2.6",
     "file-saver": "^2.0.2",
     "formidable": "^1.2.2",
     "formidable-serverless": "^1.0.3",
