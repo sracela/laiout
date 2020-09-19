@@ -119,7 +119,7 @@ useEffect(() => {
       </Head>
       <section className={styles.grid}>
         { !loading ? (<>
-        <h1 className={styles.title}>Here is your code !</h1>
+        {window.innerWidth < 1200 ? <h1 className={styles.title}>Scroll down to see the code!</h1> : <h1 className={styles.title}>Here is your code!</h1> }
         <div className={styles.resultsContainer}>
             <div className={styles.resultCard}>
                 Image
