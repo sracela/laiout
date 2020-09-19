@@ -8,9 +8,13 @@ line-height: 1.15;
 font-size: 4rem;
 font-weight: 200;
 }
-
-.title,
 .description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.title, .description {
 text-align: center;
 }
 .grid {
@@ -107,6 +111,19 @@ background-color: rgb(172, 171, 171);
 background: #555;
 }
 
+.loaderContainer{
+    width: 600px;
+    height: 200px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.loader{
+    position: relative;
+    left: 32.5%;
+    
+}
+
 .vibrate{animation:vibrate .3s linear infinite both}
 
 /* ----------------------------------------------
@@ -119,21 +136,34 @@ background: #555;
  @keyframes vibrate{0%{transform:translate(0)}20%{transform:translate(2px,-2px)}40%{transform:translate(2px,2px)}60%{transform:translate(-2px,2px)}80%{transform:translate(-2px,-2px)}100%{transform:translate(0)}}
 
 @media (max-width: 1200px) {
+    .title {
+        margin: 0;
+        line-height: 1.15;
+        font-size: 2rem;
+        font-weight: 200;
+        }
     .resultsContainer {
         display: flex;
         flex-wrap: nowrap;
-        overflow-x: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* overflow-x: auto; */
+        overflow-y: auto;
+        width: 21.18rem;
+        height: 24.5rem;
     
       }
 
-    /* .resultsContainer::-webkit-scrollbar{
-        display: none;
-    } */
+    .loader{
+        position: relative;
+        left:25%;
+        
+    }
     .resultCard {
         flex: 0 0 auto;
     }
     .grid {
-    width: 100%;
+        width: 100%;
     }
     .resultsContainer {
         width: 100%;

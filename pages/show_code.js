@@ -2,14 +2,56 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import styles from '../styles/ComputeLayout.module.css'
 import { FileUploadContent } from '../components/ImageUploader'
-import { useRouter } from 'next/router'
 import { useState, useEffect, useRef } from 'react';
 
 import axios from "axios";
-import SetIamge from './set_image'
 
 export function Loader() {
-  return (<object type="image/svg+xml" data="/images/loading.svg">svg-animation</object>)
+  const [seconds, setSeconds] = useState(0);
+  const [paragraph, setParagraph] = useState();
+
+  useEffect(() => {
+    if (seconds < 21) {
+      setTimeout(() => setSeconds(seconds + 1), 1000);
+      switch(true){
+        case (seconds > 1 && seconds <= 3):
+          setParagraph("Our AI is receiving the image");
+          break;
+        case (seconds > 3 && seconds <= 6):
+          setParagraph("She seems to like it :)");
+          break;
+        case (seconds > 6 && seconds <= 9):
+          setParagraph("Okey, it's taking longer than expected");
+          break;
+        case (seconds > 9 && seconds <= 12):
+          setParagraph("Probably our AI is procrastinating.");
+          break;
+        case (seconds > 12 && seconds <= 15):
+          setParagraph("She wasn't going to get paid anyway");
+          break;
+        case (seconds > 15 && seconds <= 20):
+          setParagraph("Maybe if you go back and try again?");
+          break;
+        default:
+          setParagraph("");
+          break;
+      }
+    }
+    else {
+      setSeconds(0);
+    }
+},[seconds]);
+
+  return (
+
+    <div className={styles.loaderContainer}>
+      <div className={styles.loader}>
+        <object type="image/svg+xml" data="/images/loading.svg">svg-animation</object></div>  
+      <div>
+        <p className={styles.description}>{paragraph}</p>
+      </div>
+    </div>
+  )
 }
 
 export default function ComputeLayout() {
@@ -45,7 +87,7 @@ useEffect(() => {
   const file = localStorage.getItem('myData');
   setImage(file);
   const payload = JSON.stringify({image: file});
-  console.log(payload)
+  // console.log(payload)
   const formData = new FormData();
   formData.append('image', file);
 
@@ -77,7 +119,7 @@ useEffect(() => {
       </Head>
       <section className={styles.grid}>
         { !loading ? (<>
-        <h1 className={styles.title}>Here is your code !</h1>
+        {window.innerWidth < 1200 ? <h1 className={styles.title}>Scroll down to see the code!</h1> : <h1 className={styles.title}>Here is your code!</h1> }
         <div className={styles.resultsContainer}>
             <div className={styles.resultCard}>
                 Image
