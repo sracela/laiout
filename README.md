@@ -1,6 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Project Description
 
-## Getting Started
+l.ai.out is a novel React-based application that converts Android UI screenshot into actual XML code!! It's a tool thought to assist developers in 'design-to-code' tasks. It used a [`deep neural model`](https://github.com/sracela/laiout_backend) based on attention which is accessed through a Flask-backend placed in a AWS instance. 
+
+## How to use it?
+- First, go to https://laiout.vercel.app/
+- Click GET STARTED!
+- Select your platform. Currently only Android UI analysis is available.
+- Upload an Android UI screenshot or if you don't have one you can use one of ours.
+- Wait
+- Wait
+- Okey, now you should be seeing the human interpretable description that the AI has made along with the real XML code.
+
+## Overview
+
+## Do you want to use it for Development?
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Getting Started
 
 First, run the development server:
 
@@ -14,7 +29,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
+### Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -23,7 +38,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
