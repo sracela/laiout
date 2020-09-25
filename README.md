@@ -12,7 +12,7 @@ l.ai.out is a novel React-based application that converts Android UI screenshot 
 - Okey, now you should be seeing the human interpretable description that the AI has made along with the real XML code.
 
 ## Overview
-<img src="https://github.com/sracela/laiout/blob/master/src/demo.gif" alt="drawing" width="1080"/>
+<img src="https://github.com/sracela/laiout/blob/master/demo.gif" alt="drawing" width="1080"/>
 
 ## Do you want to use it for Development?
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
